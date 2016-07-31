@@ -37,15 +37,16 @@ body {
 
 h1 {
   font-family: Intro;
-  font-size: 5.16rem; }
+  font-size: 5.8rem;
+  line-height: 1.25; }
 
 h3 {
   font-family: IntroBlackItalic;
   font-size: 2.4rem;
-  line-height: 1.2; }
+  line-height: 1.25; }
 
 h4 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-family: "ProximaNovaBold";
   line-height: 1.2;
   font-weight: bold; }
@@ -56,8 +57,8 @@ h6 {
   line-height: 1.2; }
 
 p {
-  font-size: 1.05rem;
-  line-height: 1.2; }
+  font-size: 1.15rem;
+  line-height: 1.15; }
 
 a {
   text-decoration: none; }
@@ -120,7 +121,6 @@ header, section {
         justify-content: center; } }
     .header .logo .logo-a {
       width: 110px;
-      margin-left: 15px;
       margin-right: 15px; }
       .header .logo .logo-a a {
         font-size: 2rem;
@@ -132,6 +132,7 @@ header, section {
     .header .logo .logo-text {
       margin-left: 15px;
       margin-right: 15px;
+      margin-top: 5px;
       font-size: 0.8667rem;
       font-family: "ProximaNova";
       color: black;
@@ -174,7 +175,7 @@ header, section {
       font-family: "ProximaNovaBold";
       font-weight: bold;
       color: white;
-      margin: auto 15px auto 18px; }
+      margin: auto 0px auto 18px; }
 
 .bgd-image {
   width: 100%;
@@ -225,16 +226,24 @@ section {
     margin: 0; }
   .navbar .icon-bar {
     background-color: #fff; }
-  .navbar .navbar-collapse {
-    padding-right: 0; }
 
 .nav {
   height: 35px;
   position: relative;
   z-index: 2; }
+  .nav .collapsing {
+    position: absolute;
+    right: 0;
+    width: 100%; }
   @media (max-width: 768px) {
     .nav {
-      height: auto; } }
+      height: auto;
+      z-index: 100; }
+      .nav .navbar-collapse {
+        padding-right: 0; }
+      .nav .menu-list {
+        position: absolute !important;
+        right: 0; } }
   .nav .menu-list {
     display: -webkit-box;
     display: -webkit-flex;
@@ -308,10 +317,10 @@ section {
     height: 100%;
     top: 0;
     left: -10%;
-    width: 40%;
-    -webkit-transform: skewX(-16.7deg);
-    -ms-transform: skewX(-16.7deg);
-    transform: skewX(-16.7deg);
+    width: 43%;
+    -webkit-transform: skewX(-16deg);
+    -ms-transform: skewX(-16deg);
+    transform: skewX(-16deg);
     background-color: rgba(0, 0, 0, 0.4); }
     .content .angle-dark:after {
       content: "";
@@ -339,20 +348,26 @@ section {
         margin-right: auto; } }
   .content .about-wall {
     position: relative;
-    -webkit-transform: skewX(-16.7deg);
-    -ms-transform: skewX(-16.7deg);
-    transform: skewX(-16.7deg);
+    -webkit-transform: skewX(-16deg);
+    -ms-transform: skewX(-16deg);
+    transform: skewX(-16deg);
     border-left: 3px solid white;
     padding-left: 10px; }
+    @media (min-width: 1200px) {
+      .content .about-wall {
+        left: -5px; } }
+    @media (max-width: 992px) {
+      .content .about-wall {
+        border-left: none; } }
     .content .about-wall .wall-h {
       display: inline-block;
       background-color: rgba(255, 255, 255, 0.702); }
       .content .about-wall .wall-h h1 {
         margin: 0px;
         display: inline-block;
-        -webkit-transform: skewX(16.7deg);
-        -ms-transform: skewX(16.7deg);
-        transform: skewX(16.7deg);
+        -webkit-transform: skewX(16deg);
+        -ms-transform: skewX(16deg);
+        transform: skewX(16deg);
         color: #000;
         padding-left: 15px;
         padding-right: 15px; }
@@ -362,18 +377,20 @@ section {
         display: inline-block;
         background-color: rgba(255, 255, 255, 0.702);
         padding-left: 15px;
-        padding-right: 15px; }
+        padding-right: 30px; }
         .content .about-wall .wall-text .wall-where h3 {
           margin: 0px;
           display: inline-block;
-          -webkit-transform: skewX(16.7deg);
-          -ms-transform: skewX(16.7deg);
-          transform: skewX(16.7deg);
+          -webkit-transform: skewX(16deg);
+          -ms-transform: skewX(16deg);
+          transform: skewX(16deg);
           color: #000;
           padding-left: 40px;
-          padding-right: 40px;
+          padding-right: 26px;
+          padding-bottom: 3px;
+          padding-top: 2px;
           border-bottom: 3px solid #000;
-          margin-bottom: 10px; }
+          margin-bottom: 12px; }
       .content .about-wall .wall-text .wall-price {
         display: inline-block;
         background-image: -webkit-gradient(linear, left bottom, left top, from(#2aeb2a), to(#007500));
@@ -384,23 +401,25 @@ section {
         margin-left: 10px;
         vertical-align: middle; }
         .content .about-wall .wall-text .wall-price p {
-          font-size: 1.347rem;
+          font-size: 1rem;
           font-family: "Intro";
           color: white;
           line-height: 1.2;
-          -webkit-transform: skewX(16.7deg);
-          -ms-transform: skewX(16.7deg);
-          transform: skewX(16.7deg);
+          -webkit-transform: skewX(16deg);
+          -ms-transform: skewX(16deg);
+          transform: skewX(16deg);
           display: inline-block;
-          padding-left: 25px;
-          padding-right: 25px;
+          padding-left: 10px;
+          padding-right: 30px;
           margin-bottom: 0px; }
           .content .about-wall .wall-text .wall-price p span {
-            font-family: IntroBlackItalic;
-            font-style: italic;
-            font-size: 2.5rem; }
+            font-family: Intro;
+            font-size: 3rem;
+            padding-left: 10px;
+            padding-right: 10px; }
   .content .content-text {
     padding-left: 15px;
+    padding-right: 15px;
     margin-top: 25px; }
     .content .content-text .content-text-idea {
       text-align: left; }
@@ -431,7 +450,7 @@ section {
         transform: matrix(1.00009, 0, 0, 0.99971, 0, 0); }
   .content .slider {
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     margin-left: 15px;
     width: 225px;
     display: -webkit-box;
@@ -503,7 +522,7 @@ section {
     .description .desc-item .desc-item-text {
       text-align: center; }
       .description .desc-item .desc-item-text h4 {
-        margin-top: 20px;
+        margin-top: 15px;
         margin-bottom: 0px; }
       .description .desc-item .desc-item-text p {
         margin-top: 10px;

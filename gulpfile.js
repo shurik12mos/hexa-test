@@ -9,16 +9,9 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
     cleanCss = require('gulp-clean-css'),
-	gulpIgnore = require('gulp-ignore');
+	gulpIgnore = require('gulp-ignore'),
+	gulpClean = require('gulp-clean');
 
-/*gulp.task('js', function() {
-   gulp.src('./app/src/js/*.js')    
-    .pipe(concat('scriptConcat.js'))	
-	.pipe(rename('scripts.js'))
-    .pipe(gulp.dest('./app/dest/js/'))	
-	.pipe(notify('Done js!'));
-});
-*/
 gulp.task('scss', function() {
 	
 	gulp.src('app/scss/style.scss')
@@ -36,17 +29,16 @@ gulp.task('scss', function() {
 	.pipe(notify('Done css!'));
 })
 
-/*gulp.task('html', function(){
-	gulp.src('./app/*.html')
-	 .pipe(gulp.dest('./app/dist/'))
-	 .pipe(notify('Done html!'));
-})*/
-
 gulp.task('default', ['scss'/*, 'js', 'html'*/], function(){
 	gulp.watch('app/scss/*.scss', ['scss']);
 })
 
 // PRODUCTION	
+
+gulp.task('clean', function () {
+  return gulp.src('dist/', {read: false})
+    .pipe(gulpClean());
+});
 	
 gulp.task('useref', function () {	 
     gulp.src('app/*.html')
